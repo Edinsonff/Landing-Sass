@@ -1,0 +1,231 @@
+$primary-color: #FFEFE7;
+$secondary-color: #FFDAC6;
+$tertiary-color: #BABD8D;
+$primary-text-color: #7C6A0A;
+$cuaternion-color: #fa9500;
+$font-stack:'IBM Plex Sans', sans-serif;
+$paragraph-size: 1.6rem;
+
+@mixin flex-center($direction,$content,$align){
+    display: flex;
+    justify-content: $content;
+    flex-direction: $direction;
+    align-items: $align;
+}
+@mixin buttonSytle{
+    button{
+        background: none;
+        border-style: none;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $primary-color;
+    font-family: $font-stack;
+}
+nav {
+    width: auto;
+    @include flex-center(row,space-between,center);
+    color: $primary-text-color;
+    padding: 15px;
+    p {
+        font-size: $paragraph-size;
+        padding-left: 30px;
+    }
+    .icons {
+        display: flex;
+        gap: 15px;
+        @include buttonSytle;
+    }
+}
+
+article {
+    width: auto;
+    color: $primary-text-color;
+    @include flex-center(row,space-between,center);
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 70px;
+    .impact-section {
+        @include flex-center(column,space-evenly,flex-start);
+        flex-direction: column;
+        padding-top: 50px;
+        gap: 25px;
+    }
+    h1 {
+        font-size: 2.0rem;
+    }
+    p {
+        font-size: $paragraph-size;
+    }
+    @include buttonSytle;
+    button {
+        width: 20vw;
+        padding: 10px;
+        background-color: $cuaternion-color;
+        border-radius: 35px;
+        color: white;
+        font-size: 1rem;
+        &:hover{
+            transform: scale(1.1);
+            transition: transform 0.5s;
+        }
+
+    }
+    img{
+        width: 25vw;
+        border-radius: 19px;
+    }
+}
+section {
+    width: auto;
+    height: auto;
+    padding: 60px;
+    h2{
+        color: $primary-text-color;
+        font: 2.0rem;
+    }
+    .healthcare{
+        padding-bottom: 60px;
+        h2{
+            font-weight: 300;
+            padding-bottom: 60px;
+        }
+        .card-section{
+            width: auto;
+            height: auto;
+            @include flex-center(row,space-evenly,center);
+            flex-wrap: wrap;
+            column-gap: 50px;
+            row-gap: 50px;
+        }
+        .product-card{
+            width: 30vw;
+            height: auto;
+            background-color: $secondary-color;
+            color: $primary-text-color;
+            padding: 20px;
+            border-radius: 8px;
+            .icon{
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                padding-bottom: 8px;
+                svg{
+                    width: 28 px;
+                    height: 28px;
+                }
+            }
+            .product-image{
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 6px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    .furniture{
+        @extend .healthcare;
+        .product-card{
+            background-color: $tertiary-color;
+            color: white;
+        }
+    }
+}
+.about-us{
+    padding-bottom: 60px;
+    h2 {
+        font-weight: bold;
+        padding-bottom: 60px;
+    }
+    .mision-section {
+        @include flex-center(row,space-evenly,center);
+        .earth{
+            width: 30vw;
+            display: flex;
+            gap: 40px;
+            color: #e86424;
+            img{
+                object-fit: contain;
+            }
+            p{
+                text-align: center;
+                font-size: 1.3rem;
+            }
+
+        }
+    }
+    .innovation{
+        @extend .earth;
+    }
+}
+.gallery{
+    h2{
+        font-weight: bold;
+        padding-bottom: 60px
+    }
+    .gallery-images{
+        @include flex-center(row,space-between,center);
+        img{
+            width: 28vw;
+            height: 35vh;
+            padding-bottom: 50px;
+            object-fit: cover;
+            object-position: 5px 35%;
+            border-radius: 15px;
+            &:hover{
+                transform: scale(1.1);
+                transition: transform 0.5s;
+            }
+        }
+
+    }
+}
+.location{
+    color: #e86424;
+    h2 {
+        padding-bottom: 60px;
+        padding-top: 60px;
+    }
+    map{
+        @include flex-center(row,center,center);
+        padding-bottom: 50px;
+    }
+    p{
+        font-size: 1.3rem;
+    }
+    h3{
+        font-size: 1.8rem;
+    }
+}
+.footer {
+    background-color: $cuaternion-color;
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    color: white;
+    .social-media{
+        @include flex-center(row,center,center);
+        width: auto;
+        gap: 20px;
+        padding-right: 20px;
+    }
+}
